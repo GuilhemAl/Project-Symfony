@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>{{ article.titre }}</h1>
+<p>{{ article.contenuA }}</p>
+<p>Date de publication : {{ article.datePublication|date("d/m/Y") }}</p>
+{% endblock %}  

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container mt-5 ">
+<h1 class="mb-4">liste des articles</h1>
+
+
+<table class="table table-hover ">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Titre</th>
+      <th scope="col">Contenue</th>
+      <th scope="col">Date</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  
+        {% for article in catalogue %}
+          <tr >
+            <td><a href="{{ path('show_article', {'id': article.id}) }}">{{ article.titre }}</a></td>
+            <td>{{article.contenuA}}</td>
+            <td>{{article.datePublication|date("d/m/Y")}}</td>
+            <td><a href="{{path('deletePost',{'id':article.id})}}">d</a></td>
+            <td><a href="{{path('modifPost',{'id':article.id})}}">m</a></td>
+
+           </tr> 
+        {% endfor %}
+   
+ 
+  </tbody>
+
+  
+</table>
+
+<div class="d-flex flex-column  align-items-end ">
+<a href="{{path('add_article')}}">
+    <button type="button"  class="btn btn-dark p-2 w-5">
+        
+        <img class="w-25" src="{{ asset('Images/iconmonstr-plus-lined-96.png') }}" alt="Image">
+    </button>
+    </a>
+<p>Ajouter un article<p>
+</div>
+
+</div>
+
+
+
+
+{% endblock %}
